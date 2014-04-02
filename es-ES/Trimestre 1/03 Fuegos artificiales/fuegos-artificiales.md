@@ -135,7 +135,7 @@ Comprueba que el cohete hace ruido y se esconde cuando llega a la posición del 
 	esconder
 	ir a [cohete v]
 	mostrar
-	esperar (1) segs
+	esperar (1) segundos
 	esconder
 ```
 ##Prueba tu proyecto { .flag}
@@ -156,7 +156,7 @@ __¡Lanza un cohete!.__
 	establecer efecto [color v] a (número al azar entre (1) y (200))
 	ir a [cohete v]
 	mostrar
-	esperar (1) segs
+	esperar (1) segundos
 	esconder
 	
 ```
