@@ -18,7 +18,11 @@
         {
             "filename": "03 Fuegos artificiales/fuegos-artificiales.md",
             "number": 3
-        }        
+        },
+        {
+            "filename": "04 Máquina de frutas/máquina-de-frutas.md",
+            "number": 4
+        }    
     ]
 }
 

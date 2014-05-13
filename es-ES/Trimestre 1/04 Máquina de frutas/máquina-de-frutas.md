@@ -1,118 +1,243 @@
-Nivel 2
+---
+title: Máquina de Frutas
+level: Nivel 2
+stylesheet: scratch
+language: es-ES
+embeds: "*.png"
+note: "notas para coordinadores.md"
+materials: "*.sb2"
+...
 
-#Máquina de frutas
+# Introducción {.intro}
+En este juego tenemos tres objetos que van cambiando sus disfraces. Tienes que pararlos cuando sean iguales!.
 
-__Introducción:__
-Este juego muestra tres objetos que cambian de disfraz. Debes intentar detenerlos cuando coincidan en la misma imagen (¡como una máquina tragaperras!).
+![screenshot](fruitmachine_screenshot.png)
 
-##PASO 1: Crea un objeto que cambia de disfraces
+# PASO 1: Crear un objeto que va cambiando de disfraz { .activity}
 
-__Vamos a importar las distintas imágenes del juego__
+## Progreso { .check}
 
-1. Comienza un proyecto de Scratch nuevo. Borra el objeto gato pinchando en él con el botón derecho y pinchando en 'borrar'.
-2. Importa un nuevo objeto.
-3. Elige cualquier imagen. Aquí hemos usado 'things/bananas1', pero puedes usar cualquier imagen que quieras.
-4. Pincha en la pestaña 'Disfraces' e importa dos imágenes más, para tener un total de tres (hemos usado 'animals/bee1' y 'things/lego', pero elige las que prefieras).
+__Vamos a cargar las imágenes que necesitamos para el juego__
 
-__Ahora que tenemos disfraces, queremos que el objeto intercambie entre ellas.__
++ Crea un nuevo proyecto Scratch. Borra el gato haciendo click con el botón derecho y pulsando Borrar. 
++ Lo primero de todo, vamos a añadir un nuevo fondo desde la biblioteca. Escoje el fondo **rays** de la categoría **Otros** y después borra el fondo blanco original.  
++ Ahora añade un objeto nuevo desde la biblioteca. 
++ Escoje una imagen desde cualquier carpeta. En el ejemplo hemos usado **Cosas/Bananas**, pero puedes usar cualquier imágen que te guste.
++ Haz click en la '**i**' azul al lado de la imagen del objeto en la ventana Objetos. Cambia el nombre del objeto a 'Fruta'.
++ Ahora pulsaen la pestaña Disfraces y carga dos nuevas imágenes para que haya un total de tres disfraces (en el ejemplo hemos usado **cosas/apple** y **cosas/watermelon-a**, pero puedes usar las que más te gusten).
 
-##PASO 2: Haz que la imagen cambie
+__Ahora que tenemos varios disfraces queremos que el objeto vaya cambiando de uno a otro.__
 
-1. Pincha en la pestaña 'Programas'.
-2. Abre la paleta de bloques de control y arrastra el bloque 'al presionar BANDERA' al área de programas.
-3. Añade un bloque 'por siempre' y encájalo debajo del anterior.
-4. Pincha en la bandera verde de la esquina superior derecha.  Notarás que aparece un borde blanco alrededor del programa: eso indica que la bandera verde ejecuta el programa.
-5. Ahora abre la paleta de apariencia y arrastra un bloque 'siguiente disfraz'.
-6. ¿Cómo hacemos que cambie un poco más despacio? Añade un bloque 'esperar 1 segundos' de la paleta de control.
-7. Ajusta el número de segundos para que se repita a la velocidad que quieras (0.1 segundos parece ideal). ¿Qué ocurriría sin ese bloque de espera?
+# PASO 2: Hacer que la imagen cambie { .activity}
 
-```scratch
+## Progreso { .check}
 
-	al presionar BANDERA
-	por siempre		
-		siguiente disfraz
-		esperar 0.1 segundos
-	(fin por siempre)
-```
++ Pulsa en la pestaña `Programas` {.blocklightgrey}.
++ Pulsa en `Eventos`{.blockgrey} y arrastra un `al presionar BANDERA` { .blockyellow} a la zona de programas.
++ Pulsa en Control y añade un bloque `por siempre` { .blockyellow} y ponlo debajo, encajado con el bloque anterior.
++ **Pulsa la bandera verde**. Fíjate que aparece un borde amarillo alrededor del programa. Está ejecutándose porque hemos pulsado la bandera, que esel evento que lo desencadena. 
++ Ahora pulsa `Apariencia`{.blockgrey} y arrastra `siguiente disfraz` { .blockpurple}
++ ¿Cómo hacemos que los disfraces cambien maś despacio? Pulsa en `Control`{.blockgrey} y añade un `esperar 1 segundos` { .blockyellow}
++ Ajusta el tiempo hasta que los disfraces cambien a un ritmo más rápido (prueba con 0.5s, parece una buena velocidad). ¿Qué pasaría si no ponemos el bloque `esperar 1 segundos` { .blockyellow}?
 
-###Prueba tu proyecto
-__Pincha en la bandera verde.__ 
-¿Cambia el objeto de disfraz a una velocidad adecuada?
+    ```blocks
+    Al presionar BANDERA VERDE
+    por siempre    	
+        siguiente disfraz
+        esperar (0.5) segundos
+    ```
 
-Guarda tu proyecto
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde.__ 
+¿Cambian los disfraces a buen ritmo?
 
-###Cosas para probar
+##Guarda tu proyecto { .save}
 
-Ajusta el tiempo en el bloque de espera. ¿Qué valores hacen que el juego sea demasiado fácil o difícil?
+##Cosas para probar { .try}
 
-##PASO 3: Haz que se detenga cuando pinchamos en él
+Prueba distintos tiempos en el bloque `esperar 1 segundos` {.blockyellow}. ¿Qué numeros crees que harán el juego muy fácil o muy difícil?
 
-Muy bien, hemos hecho que el objeto cambie de disfraz para siempre, ¿ahora cómo hacemos para que se detenga cuando pinchamos en él?
+# PASO 3: Hacer que se pare al pulsar {.activity}
 
-1. Crea una nueva variable pinchando en 'Variables' y luego en 'Nueva variable'. Dale el nombre 'detenido', márcalo 'para todos los objetos' y despeja su casilla para que no aparezca en el escenario.
-2. Fija el valor de la variable 'detenido' a 1 cuando alguien pincha en la imagen, usando un bloque 'al presionar Objeto1'.
-3. Tenemos que asegurarnos de que la imagen deje de cambiar cuando la variable 'detenido' tenga el valor 1. Usando la paleta de bloques de control, reemplaza el bloque 'por siempre' con un 'por siempre si detenido=0'.
-4. Finalmente, añade un 'fijar detenido a 0' debajo de 'al presionar BANDERA'.
+## Progreso { .check}
 
-###Prueba tu proyecto
-__Pincha en la bandera verde, espera unos momentos y pincha en el objeto.__ 
+**¡Qué bien! Ahora podemos hacer que el objeto cambie los disfraces todo el rato, pero ¿cómo hacemos que se pare al pulsar?**
+Una forma de hacerlo es usar una variable para guardar el estado del Objeto. Además, esto nos será útil después...
 
-¿Cambia continuamente de disfraz antes de pinchar en él?
-¿Se detiene cuando pinchas en él?
-__Empieza el juego de nuevo.__ ¿Se detiene el objeto cuando pones el puntero del ratón sobre él sin pinchar? ¿Se detiene cuando pinchas en alguna otra parte del escenario? ¿En otra parte de la ventana de Scratch? ¿Fuera de la ventana de Scratch?
++ Crea una nueva variable pulsando en `Datos` {.blockorange} y `Crear una variable`{.blocklightgrey}. Llámala `parado`{.blockorange} y haz que sea sólo para éste objeto. Luego desmarca la casilla que aparece a la izquierda para que no aparezca en el escenario. 
++ Al empezar el juego, el objeto aún no habrá sido pulsado así que pondremos el valor de la variable a **"NO"**. 
 
-Guarda tu proyecto
+    ```blocks
+    Al presionar BANDERA VERDE
+    fijar [parado v] a (NO)
+    por siempre     
+        siguiente disfraz
+        esperar (0.1) segundos
+    ```
++ Ahora vamos a cambiar el valor de la variable `parado`{.blockorange} a **"YSI"** cuando alguien pulse en el objeto.  
 
-##PASO 4: Crea otros objetos
-__¡Añadamos otros objetos para completar el juego!__
+    ```blocks
+    al clikear este objeto
+    fijar [parado v] a (SI)
+    ```
++ Por último, tenemos que hacer que el objeto deje de cambiar de disfraz cuando la variable `parado`{.blockorange} cambie a "SI". Añade un `si...entonces`{ .blockyellow} y usa un bloque **es igual a** `[] = []` {.blockgreen} (que encontrarás dentro de la pestaña *Operadores*) para comprobar si `parado`{.blockorange} tiene aún el valor "NO".
 
-1. Duplica el objeto 'Objeto1' pinchando en él con el botón derecho.
-2. Duplícalo de nuevo para acabar con tres objetos en el escenario.
-3. Muévelos para que queden alineados. Disminuye su tamaño si hace falta.
+    ```blocks
+    Al presionar BANDERA VERDE
+    fijar [parado v] a (NO)
+    por siempre     
+        si <(parado) = [NO]> entonces	
+            siguiente disfraz
+            esperar (0.5) segundos
+    ```
 
-###Prueba tu proyecto
-__Pincha en la bandera verde.__ Todos los objetos deben empezar a cambiar. ¡Intenta detenerlos todos en la misma imagen!
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde, espera un poco, y haz click sobre el objeto.__ 
 
-Guarda tu proyecto
+¿Cambia de disfraz antes de que hagas click?
 
-###Cosas para probar
+¿Se para cuando pulsas?
 
-Cuando el juego empieza por primera vez todos los objectos muestran el mismo disfraz y cambian a la vez. ¿Sabes hacer que cada objeto elija un disfraz al azar cuando pinchas en la bandera verde?
-__Muy bien, has completado el juego básico. Hay más elementos que añadir: ¡atrévete con estos desafíos!__
+__Arranca el programa otra vez.__ ¿Se para cuando pones el puntero del ratón encima, sin hacer click? ¿Se para cuando haces click en cualquier otro sitio en el escenario? 
+
+##Guarda tu proyecto { .save}
+
+# PASO 4: Creando otro objeto {.activity}
+__Ahora necesitamos añadir más objeto, ¡para poder jugar!__
+
+## Progreso { .check}
+
++ **Duplica el objeto** (Fruta) haciendo click con el botón derecho sobre él.
++ Duplicalo otra vez para tener **3** objetos en la pantalla.
++ Mueve cada objeto de manera que queden en línea. Hazlos más pequeños o más grandes si crees que es necesario.
+
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde.__ Todos los objetos deberían cambiar. ¡Intenta pararlos todos con la misma imagen haciendo click en cada uno!
+
+##Guarda tu proyecto { .save}
+
+# PASO 5: Inicia cada objeto con un disfraz al azar { .activity}
+__Vamos a hacer que los objetos cambien a un disfraz aleatorio al pulsar la bandera verde.__
+
+La primera vez que juegas, justo despues de cargar, todos los objetos empiezan con el mismo disfraz y cambian a la vez. 
+El juego sería más interesante (y difícil) si cambiaran de una forma menos predecible. 
+
+## Progreso { .check}
+
++ Si miras en la pestaña `disfraces`{.blocklightgrey} de un objeto verás que cada disfraz tiene un número. Puedes decir qué disfraz quieres que un objeto use mediante ese número o usando el nombre del disfraz. 
++ Para hacer que el objeto se inicie con un disfraz aleatorio, vamos a añadir un bloque `cambiar disfraz a` { .blockpurple} con un `número al azar entre (1) y (3)` { .blockgreen} para elegir el número de disfraz. 
++ Podemos usar exactamente el mismo bloque dentro del bucle `por siempre`{.blockyellow} para que el objeto cambie a un disfraz distinto cada vez durante el juego. 
+
+    ```blocks
+    Al presionar BANDERA VERDE
+    fijar [parado v] a (NO)
+    cambiar disfraz a <número al azar entre (1) y (3)>
+    por siempre	
+       si <(parado) = [NO]> entonces    
+            siguiente disfraz
+            esperar (0.5) segundos
+    ```
++ Haz lo mismo para los demás objetos. 
+
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde.__ Todos los objetos deberián cambiar los disfraces en un orden distinto, *al azar*. 
+
+¿Cómo tendrías que cambiar el programa si añadieramos otro disfraz? 
+ 
+##Guarda tu proyecto { .save}
+
+##Cosas para probar { .try}
+ 
+ __Haz el juego más dificil__ 
+
+Cambia la dificultad del juego de alguna manera. Hacer que los disfraces cambien más deprisa es sencillo ¿verdad?. ¿Se te ocurre alguna otra forma? Algunas cosas que puedes probar son:
+
++ Cambia el número de disfraces que tiene cada objeto. 
++ Haz que algunos objetos tengan disfraces distintos y únicos.
++ Haz que cada objeto cambie de disfraces a una velocidad distinta. 
+
+__¡Disfruta pensando en tus propias mejoras!__
+
+Cada vez que hagas un cambio piensa si hace que el juego sea más fácil o más difícil. Ajusta la dificultad a lo que a ti te parezca razonable. 
+
+## PASO 6: Muestra un mensaje cuando el juego se termine { .activity}
+__Vamos a mostrar un mensaje "Game Over" cuando el juego se acabe__
+
+## Progreso { .check}
+
+Lo primero, vamos a crear un fondo distinto para mostrar cuando el juego haya terminado.
++ Pulsa en el escenario, y ve a la pestaña `Fondos`{.blocklightgrey}. Cambia el nombre del fondo que ya tenemos a **"Jugando"**. 
++ Duplica el fondo y añade un texto que diga **"Juego Terminado"**. Puedes cambiar el tamaño del texto pulsando sobre él y arrastrando una de las esquinas. Renombra este fondo a **"JuegoTerminado"**.
++ Haz click en la pestaña `Programas`{.blocklightgrey} del escenario y haz que el fondo "Jugando" sea el que se muestra cuando se inicia el juego. 	
++ ¿Cómo podemos detectar cuando todos los objetos se han parado? ¿Recuerdas que usamos la variable `parado`{.blockorange} para guardar cuando cada objeto había sido pulsado? Vamos a comprobar el valor de la variable `parado`{.blockorange} para el objeto **Fruta3** para ver si el juego se ha terminado. Vamos a usar un bloque `posición x de Fruta3` { .blockblue}, dentro de `Sensores`{.blocklightgrey}, pero cambiando **posición x** to `stopped`{.blockorange}.
+	
+    ```blocks
+    Al presionar BANDERA VERDE
+    cambiar fondo a [Jugando v]
+    por siempre
+        si <([parado v] de [Fruta3 v]) = [SI]> entonces
+            cambiar fondo a [JuegoTerminado v]
+    ```
+
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde.__ ¿Aparece el mensaje "Juego Terminado" cuando pulsas en Fruta3? 
+
+¿Qué pasa si paras Fruta3 antes de haber pulsado los otros dos objetos? Vamos a cambiar nuestro programa para que funcione independientemente del orden en el que pulsemos los objetos. 
+
++ Para comprobar que __los tres__ objetos tienen sus variables `parado`{.blockorange} puestas a **SI**, podemos usar un bloque operador `y` {. blockgreen}. Este bloque es complicado, y puede ser difícil de hacer así que vamos a intentar hacerlo paso a paso. 
+
+    ```blocks
+    Al presionar BANDERA VERDE
+    cambiar fondo a [Jugando v]
+    por siempre
+        si <<<([parado v] de [Fruta1 v]) = [SI]> y <([parado v] de [Fruta2 v]) = [SI]>> y <([parado v] de [Fruta3 v]) = [SI]>> entonces
+            cambiar fondo a [JuegoTerminado v]
+    ```
+
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde.__ ¿Aparece el mensaje "Juego Terminado" cuando pulsas en las tres frutas, sin importar el orden?
+
+##Guarda tu proyecto { .save}
+
+# PASO 7. Dile al jugador si ha ganado o perdido { .activity}
+
+__La meta del juego es pulsar en los objetos para que se paren cuando son iguales. Estaría bien poder decirle al jugador si ha ganado o perdido.__
+
+## Progreso { .check}
+
++ En el __paso 6__ escribimos el código para comprobar si el juego ha terminado. Sólo nos queda comprobar si el jugador ha ganado. Vuelve a los fondos y añade un texto al fondo "JuegoTerminado", para que también diga **¡HAS GANADO!"**. Cambia el nombre del fondo a **"JuegoGanado"**.
++ Duplica el fondo anterior para crear uno con el texto **"¡HAS PERDIDO!"**. Llámalo **"JuegoPerdido"**.
++ Ahora necesitamos algo de código para enseñar el fondo adecuado cuando termina el juego. Podemos usar un bloque `si...entonces...si no` { .blockyellow} para comprobar si el jugador ha ganado comparando el `# de disfraz`{.blockpurple} de cada objeto. Vamos a usar para eso un bloque `posición x de objeto`{.blockblue} como hicimos antes. Esta vez, en vez de comprobar la variable `parado`{.blockorange} podemos comprobar `# de disfraz`{.blockpurple} y ver si Fruta1 tiene el mismo disfraz que Fruta2, y si Fruta2 tiene el mismo que Fruta3. 
 
 
-##Desafío 1: Hazlo más difícil
+    ```blocks
+    Al presionar BANDERA VERDE
+    cambiar fondo a [Jugando v]
+    por siempre
+        si <<<([parado v] de [Fruta1 v]) = [SI]> y <([parado v] de [Fruta2 v]) = [SI]>> y <([parado v] de [Fruta3 v]) = [SI]>> entonces
+            si <<([# de disfraz v] de [Fruta1 v]) = ([# de disfraz v] de [Fruta2 v])> y <([# de disfraz v] de [Fruta2 v]) = ([# de disfraz v] de [Fruta3 v])>> entonces
+                cambiar fondo a [JuegoGanado v]
+            si no    
+                cambiar fondo a [JuegoPerdido v]
+    ```
+ 
+## Prueba tu proyecto { .flag}
+__Pulsa la bandera verde.__ ¿Aparece el mensaje correcto cuando termina el juego? ¿Qué pasa si los disfraces de todos los objetos no coinciden? (por ejemplo, el número de disfraz 3 de Fruta2 es una manzana y el disfraz 3 de Fruta3 es un melón)? 
 
-Cambia el nivel de dificultad. La manera más sencilla es acelerar los cambios de disfraz. Prueba algo más imaginativo, como por ejemplo:
+##Guarda tu proyecto { .save}
+   
+__¡Bien hecho! Has terminado el juego básico. Pero hay un montón de cosas que puedes hacer para que el juego sea más difícil. ¿Aceptas el reto?__
 
-1. Cambia el número de disfraces por objeto.
-2. Haz que algunos objetos tengan disfraces únicos.
-3. Haz que distintos disfraces cambien a distintas velocidades.
-4. Haz que el orden de los disfraces sea al azar.
+##Reto: Hacer que el juego sea más dificil según pasa el tiempo{ .challenge}
 
-__¡Diviértete inventando tus propias ideas!__
+Cada persona tendrá un nivel distinto jugando. __¿Cómo podrías hacer que el juego adapte el nivel de dificultad dependiendo del jugador?__
 
-Cada vez que cambies algo, considera si hace el juego más fácil o más difícil. ¿Resulta demasiado fácil el juego? ¿Puedes encontrar el nivel de dificultad ideal?
+Una forma de conseguirlo es __ajustar la velocidad a la que cambian los disfraces__. Puedes usar una variable, por ejemplo `retraso`{.blockorange}, para configurar la duración del bloque "esperar" de cada objeto. Si el jugador gana, el retraso se reduce (para hacer el juego más difícil). Si el jugador pierde el retraso de incrementa un poco (para hacer el juego más fácil). 
 
-##Desafío 2: Haz que la dificultad cambie según se juega
+Seguramente tengas que pensar en que el juego empiece de una manera distinta, en vez de usando el `al pulsar BANDERA VERDE`{.blockyellow}. Podrías guardar los valores de las variables entre cada ronda del juego.game. 
 
-A distintos jugadores se les dará mejor o peor el juego. __¿Cómo puedes hacer que el juego adapte su dificultad a cada jugador?__
+##Guarda tu proyecto { .save}
 
-Quizás puedes alterar la velocidad a la que los disfraces cambian. Usa una variable llamada 'retraso' que controle el tiempo de espera de cada objeto. Si la jugadora gana una partida, reduce el valor del 'retraso' para hacer la siguiente partida más difícil. Si la jugadora pierde, incrementa el 'retraso' un poco.
+__¡Bien hecho, has acabado! Ahora ¡Disfruta de tu juego!__
 
-##Desafío 3: Detecta si todos los objetos se han detenido en la misma imagen
-
-__El objetivo del juego es detener los objetos en la misma imagen. Convendría que el escenario detectase cuando todos los objetos se han detenido en el mismo disfraz para decirte si has ganado.__
-
-En primer lugar el escenario tiene que saber cuando el jugador ha acabado. Para ello, cuando alguien pincha en un objeto, el escenario verifica si todos los objetos están detenidos. Modifica el bloque 'al presionar ObjetoX' de cada objeto haciendo que envíen un mensaje 'verificarFin'.
-
-El escenario puede responder a este mensaje y verificar si la variable 'detenido' de cada objeto tiene el valor 1, usando el bloque 'detenido de ObjetoX' en la paleta de 'Sensores'. Si todas las variables tienen el valor 1, sabemos que la partida ha concluido y podemos verificar si hemos ganado.
-
-Para comparar los disfraces, usamos el mismo bloque, esta vez comparando el '# de disfraz de ObjetoX' de cada objeto.
-
-Así, tendrás un bloque 'si' que verifique las variables 'detenido', y dentro de ese bloque otro 'if' comparando los '# de disfraz'.
-
-Una vez verificado el resultado, puedes anunciarlo enviando mensajes 'ganador' o 'perdedor', y haciendo que otro objeto los reciba. ¿Quizás el gato Félix podría felicitar al jugador?
-
-__Bien hecho, hemos terminado. ¡Ahora a disfrutar de tu juego!__
-No olvides que puedes compartir tu juego con amigos y familiares pinchando en __Compartir__ en el menú.
+No olvides que puedes compartir el juego con tu familia y amigos pulsando el botón __Compartir__ en la barra de herramientas
